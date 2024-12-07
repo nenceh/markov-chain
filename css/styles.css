@@ -73,7 +73,7 @@ html {
 }
 
 #find-me {
-  background-color: #172427;
+  background-color: rgba(23, 36, 39, 0.85);
   border-radius: 10px 0 0 10px;
   position: fixed;
   right: 0;
@@ -84,26 +84,31 @@ html {
   transition: all 0.4s;
 }
 #find-me ul {
-  margin: 10px 10px;
-  gap: 16px;
+  gap: 4px;
   padding: 0;
   list-style-type: none;
 }
 #find-me ul li {
   line-height: 0;
+  transition: background-color 0.3s ease;
+  border-radius: 10px 0 0 10px;
 }
 #find-me ul li svg {
+  margin: 12px;
   padding: 2px;
   height: 24px;
   width: 24px;
   fill: #FFF;
 }
+#find-me ul li:first-child {
+  border-top-left-radius: 10px;
+}
+#find-me ul li:last-child {
+  border-bottom-left-radius: 10px;
+}
 #find-me img {
   width: 24px;
   height: auto;
-}
-#find-me:hover {
-  background-color: rgba(23, 36, 39, 0.85);
 }
 
 .page-banner {
@@ -154,19 +159,6 @@ html {
   border-top: 6px solid transparent;
   content: "";
 }
-.page-banner:hover {
-  background-color: #f69051;
-  color: #172427;
-}
-.page-banner:hover span.highlight-1 {
-  background: linear-gradient(to bottom, transparent 50%, #FCE04F 50%);
-}
-.page-banner:hover span.highlight-2 {
-  background: linear-gradient(to bottom, transparent 50%, lightblue 50%);
-}
-.page-banner:hover ul.breadcrumbs li:before {
-  border-left-color: #000;
-}
 
 .flex-col {
   display: flex;
@@ -192,7 +184,7 @@ html {
 }
 @media screen and (min-width: 892px) {
   body {
-    margin: 40px auto;
+    margin: 40px auto 0;
   }
   body .topnav-container, body p, body li, body img, body label {
     font-size: 16px;
@@ -243,7 +235,7 @@ html {
     letter-spacing: 0;
     font-family: "Trebuchet MS";
   }
-  body button#to-top, body figcaption, body figcaption li, body ul.toggle-filters label, body sup {
+  body button#to-top, body figcaption, body figcaption li, body ul.toggle-filters label, body sup, body .footer-primary li, body .footer-secondary a {
     font-size: 13px;
     font-weight: 400;
     line-height: 20px;
@@ -287,7 +279,7 @@ html {
   .body-content p, .extra p, figcaption, .panel-control, .panel-container, .section-body ul, .section-body ol, .section-body hr, div.gen-text {
     width: 100%;
   }
-  main, .page-banner p.desc, .info-container > .info {
+  main, .page-banner p.desc, .info-container > .info, .footer-sitemap {
     width: calc(6 * (100% + 24px) / 12 - 24px);
   }
   .topnav-container {
@@ -308,13 +300,21 @@ html {
     margin: 40px 0 80px;
   }
   footer.footer {
-    margin: 80px 100px 100px;
+    margin-top: 80px;
+    padding: 80px 100px 100px;
+  }
+  footer.footer li {
+    height: 48px;
   }
   .body-content {
     flex-direction: row-reverse;
     margin: 0 100px;
     gap: 24px;
     align-items: flex-start;
+  }
+  .body-content.landing {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .body-content main {
     gap: 120px;
@@ -465,6 +465,21 @@ html {
     background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
     color: white;
   }
+  .entry-list .portfolio-entry-info .desc .fa {
+    font-size: 18px;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure svg {
+    margin-left: 40px;
+    width: 180px;
+    height: 180px;
+  }
+  section#about-me .section-body {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  section#about-me .section-body #about-me-pic {
+    width: 280px;
+  }
   .early-regex .input {
     margin-top: 8px;
   }
@@ -531,7 +546,7 @@ html {
   }
 }
 @media screen and (max-width: 1102px) {
-  #project-info, nav[role=navigation], .page-banner p.desc, .info-container > .info, .section-title, .body-content p, .extra p, figcaption, .panel-container, .section-body ul, .section-body ol, .section-body hr, div.gen-text {
+  #project-info, nav[role=navigation], .page-banner p.desc, .info-container > .info, .section-title, .body-content p, .extra p, figcaption, .panel-container, .section-body ul, .section-body ol, .section-body hr, div.gen-text, .footer-sitemap {
     width: calc(6 * (100% + 24px) / 8 - 24px);
   }
   .info-container .info {
@@ -585,7 +600,16 @@ html {
     width: 100%;
     align-self: flex-start;
   }
+  section#about-me .section-body {
+    flex-direction: row;
+    gap: 40px;
+  }
+  section#about-me .section-body #about-me-pic {
+    width: 260px;
+  }
   .entry-list {
+    padding-top: 80px;
+    padding-bottom: 80px;
     width: 100%;
   }
   .entry-list .portfolio-entry {
@@ -609,10 +633,17 @@ html {
     background: none;
     color: #172427;
   }
+  .entry-list .portfolio-entry#fs_matcha figure {
+    justify-content: center;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure svg {
+    width: 180px;
+    height: 180px;
+  }
 }
 @media screen and (max-width: 891px) {
   body {
-    margin: 40px auto;
+    margin: 40px auto 0;
   }
   body .topnav-container, body p, body li, body img, body label {
     font-size: 14px;
@@ -663,14 +694,14 @@ html {
     letter-spacing: 0;
     font-family: "Trebuchet MS";
   }
-  body figcaption, body figcaption li, body ul.toggle-filters label, body sup {
+  body figcaption, body figcaption li, body ul.toggle-filters label, body sup, body .footer-primary li, body .footer-secondary a {
     font-size: 11px;
     font-weight: 400;
     line-height: 16px;
     letter-spacing: 0.5px;
     font-family: "Trebuchet MS";
   }
-  body #project-info, body nav[role=navigation], body .page-banner p.desc, body .info-container > .info, body .section-title, body .body-content p, body .extra p, body figcaption, body .panel-container, body .section-body ul, body .section-body ol, body .section-body hr, body div.gen-text {
+  body #project-info, body nav[role=navigation], body .page-banner p.desc, body .info-container > .info, body .section-title, body .body-content p, body .extra p, body figcaption, body .panel-container, body .section-body ul, body .section-body ol, body .section-body hr, body div.gen-text, body .footer-sitemap {
     max-width: 499px;
     width: 100%;
   }
@@ -729,11 +760,19 @@ html {
     gap: 4px;
   }
   footer.footer {
-    margin: 40px 70px 80px;
+    margin-top: 40px;
+    padding: 40px 70px 80px;
+  }
+  footer.footer li {
+    height: 40px;
   }
   .body-content {
     gap: 80px;
     margin: 0 70px;
+  }
+  .body-content.landing {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .body-content ul, .body-content ol {
     gap: 12px;
@@ -799,6 +838,12 @@ html {
   .body-content main figure.restrict img {
     max-height: 500px;
   }
+  section#about-me .section-body {
+    gap: 24px;
+  }
+  section#about-me .section-body #about-me-pic {
+    width: 200px;
+  }
   .panel-container .panel {
     margin-top: 12px;
   }
@@ -863,15 +908,17 @@ html {
     padding: 6px 12px;
   }
   .entry-list {
+    padding-top: 40px;
+    padding-bottom: 40px;
     gap: 40px;
   }
   .entry-list .portfolio-entry {
     gap: 20px;
-    height: 160px;
+    height: 180px;
     justify-content: flex-start;
   }
   .entry-list .portfolio-entry figure {
-    height: 160px;
+    height: 100%;
     position: static;
     width: calc(4 * (100% + 20px) / 8 - 20px);
   }
@@ -886,6 +933,16 @@ html {
     height: 100%;
     background: none;
     color: #172427;
+  }
+  .entry-list .portfolio-entry-info .desc .fa {
+    font-size: 16px;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure {
+    justify-content: center;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure svg {
+    width: 164px;
+    height: 164px;
   }
 }
 @media screen and (max-width: 631px) {
@@ -902,7 +959,16 @@ html {
     margin: 24px 0 80px;
   }
   footer.footer {
-    margin: 40px 40px 80px;
+    padding: 40px 40px 80px;
+  }
+  footer.footer .footer-secondary {
+    padding-right: 24px;
+  }
+  section#about-me .section-body {
+    flex-direction: column-reverse;
+  }
+  section#about-me .section-body #about-me-pic {
+    max-width: 50%;
   }
   .body-content {
     margin: 0 40px;
@@ -934,7 +1000,15 @@ html {
     width: calc(100% - 32px);
     height: 100%;
     background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
-    color: white;
+    color: #FFF;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure {
+    justify-content: flex-start;
+  }
+  .entry-list .portfolio-entry#fs_matcha figure svg {
+    margin-left: 24px;
+    width: 180px;
+    height: 180px;
   }
 }
 @media screen and (max-width: 479px) {
@@ -948,7 +1022,7 @@ html {
     margin: 24px 0 64px;
   }
   footer.footer {
-    margin: 40px 24px 80px;
+    padding: 40px 24px 80px;
   }
   .body-content {
     margin: 0 24px;
@@ -961,12 +1035,59 @@ html {
     height: 240px;
     padding: 0 16px;
   }
+  section#about-me .section-body #about-me-pic {
+    max-width: 60%;
+  }
 }
 @media screen and (min-width: 1150px) {
   .toc ol {
     list-style-type: none;
     display: flex;
     flex-flow: column nowrap;
+  }
+}
+@media (hover: hover), (-ms-high-contrast: none) and (pointer: fine) {
+  a:hover {
+    color: #736EF7;
+  }
+  .body-content nav.toc li a:hover {
+    text-decoration: underline;
+    color: #736EF7;
+  }
+  #find-me li:hover {
+    background-color: #172427;
+  }
+  button#to-top:hover {
+    background-color: #172427;
+  }
+  .page-banner:hover {
+    background-color: #f69051;
+    color: #172427;
+  }
+  .page-banner:hover span.highlight-1 {
+    background: linear-gradient(to bottom, transparent 50%, #FCE04F 50%);
+  }
+  .page-banner:hover span.highlight-2 {
+    background: linear-gradient(to bottom, transparent 50%, lightblue 50%);
+  }
+  .page-banner:hover ul.breadcrumbs li:before {
+    border-left-color: #000;
+  }
+  .btn-primary:hover {
+    background-color: #736EF7;
+  }
+  .entry-list .portfolio-entry:hover {
+    box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+  }
+  ul.toggle-filters label:active {
+    letter-spacing: 0.8px;
+  }
+  footer a:hover {
+    color: #736EF7;
+  }
+  footer a:hover svg {
+    fill: #736EF7;
   }
 }
 /* BODY */
@@ -983,7 +1104,7 @@ body a {
   color: #211CAD;
   transition: color 0.3s;
 }
-body a:hover {
+body a:active {
   color: #736EF7;
 }
 body main ul {
@@ -1048,6 +1169,9 @@ body main code, body main pre {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.body-content main figure.restrict img {
+  width: auto;
+}
 .body-content main .section-note {
   font-size: smaller;
   margin-top: 64px;
@@ -1079,7 +1203,7 @@ body main code, body main pre {
 .body-content .toc ol li:last-child:before {
   bottom: 2px;
 }
-.body-content .toc ol li a:hover {
+.body-content .toc ol li a:active {
   text-decoration: underline;
   color: #736EF7;
 }
@@ -1106,15 +1230,15 @@ button#to-top {
   align-items: center;
   border-radius: 100px;
   z-index: 1;
-  background-color: #172427;
+  background-color: rgba(23, 36, 39, 0.85);
   border: none;
   color: #FFF;
 }
 button#to-top svg {
   fill: #FFF;
 }
-button#to-top:hover {
-  background-color: rgba(23, 36, 39, 0.85);
+button#to-top:active {
+  background-color: #172427;
 }
 
 .btn-primary {
@@ -1126,7 +1250,7 @@ button#to-top:hover {
 .btn-primary svg {
   fill: white;
 }
-.btn-primary:active, .btn-primary:hover {
+.btn-primary:active {
   background-color: #736EF7;
 }
 .btn-primary.panel-control {
@@ -1206,38 +1330,40 @@ aside.back-to-top {
   color: #172427;
 }
 
-#about-me .section-body {
+section#about-me .section-body {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-#about-me .section-body div#about-me-info ul {
+section#about-me .section-body #about-me-info ul {
   list-style: none;
+  width: 100%;
+  padding-left: 0;
 }
-#about-me .section-body div#about-me-info ul li {
+section#about-me .section-body #about-me-info ul li {
   position: relative;
 }
-#about-me .section-body div#about-me-info ul li:before {
+section#about-me .section-body #about-me-info ul li:before {
   display: inline-block;
   width: 18px;
   text-align: center;
   margin-right: 10px;
 }
-#about-me .section-body div#about-me-info ul li:nth-child(1):before {
+section#about-me .section-body #about-me-info ul li:nth-child(1):before {
   content: "👤";
 }
-#about-me .section-body div#about-me-info ul li:nth-child(2):before {
+section#about-me .section-body #about-me-info ul li:nth-child(2):before {
   content: "📍";
 }
-#about-me .section-body div#about-me-info ul li:nth-child(3):before {
+section#about-me .section-body #about-me-info ul li:nth-child(3):before {
   content: "📚";
 }
-#about-me .section-body div#about-me-info ul li:nth-child(4):before {
+section#about-me .section-body #about-me-info ul li:nth-child(4):before {
   content: "🎓";
 }
-#about-me .section-body figure#about-me-pic {
+section#about-me .section-body figure#about-me-pic {
   padding: 0;
-  max-width: 40%;
 }
 
 #tinder-bio blockquote {
@@ -1265,6 +1391,9 @@ aside.back-to-top {
 }
 #tinder-bio span#ingenious {
   color: #ffcc00;
+}
+#tinder-bio p {
+  text-align: center;
 }
 
 .project-showcase {
@@ -1305,8 +1434,8 @@ aside.back-to-top {
   overflow: hidden;
   box-shadow: 2px 3px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.entry-list .portfolio-entry:hover {
-  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+.entry-list .portfolio-entry:active {
+  box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.3);
   border-radius: 0;
 }
 .entry-list .portfolio-entry > a {
@@ -1330,6 +1459,14 @@ aside.back-to-top {
 .entry-list .portfolio-entry-thumbnail img {
   transition: all 0.4s;
   min-height: 100%;
+}
+.entry-list .portfolio-entry#fs_matcha figure {
+  background-color: #B7C5C8;
+  display: flex;
+  align-items: center;
+}
+.entry-list .portfolio-entry#fs_matcha figure svg path {
+  fill: #135842;
 }
 
 ul.toggle-filters {
@@ -1355,7 +1492,7 @@ ul.toggle-filters li label {
   line-height: 100%;
   white-space: normal;
 }
-ul.toggle-filters li label:hover, ul.toggle-filters li label:active {
+ul.toggle-filters li label:active {
   letter-spacing: 0.8px;
 }
 ul.toggle-filters li input[type=checkbox] {
@@ -1522,4 +1659,36 @@ span.stand-rest {
 }
 span.stand-rest2 {
   color: #FF5B66;
+}
+
+footer.footer {
+  display: flex;
+  justify-content: center;
+  background: #B7C3DA;
+}
+footer.footer ul {
+  list-style-type: none;
+}
+footer.footer ul li, footer.footer ul a {
+  transition: color 0.4s ease;
+  color: #102B60;
+}
+footer.footer .footer-sitemap {
+  display: flex;
+  justify-content: space-between;
+}
+footer.footer .footer-sitemap .footer-primary li, footer.footer .footer-sitemap .footer-secondary a {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+footer.footer svg {
+  transition: fill 0.4s ease;
+  fill: rgba(23, 36, 39, 0.85);
+}
+footer.footer a:active {
+  color: #736EF7;
+}
+footer.footer a:active svg {
+  fill: #736EF7;
 }/*# sourceMappingURL=styles.css.map */
