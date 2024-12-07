@@ -1,4 +1,4 @@
-<mark>Read the complete version (with additional information, pictures, and <code>regex</code> demos) on my website!</mark>
+<mark>Read the complete version (with additional information, pictures, and <code>regex</code> demos) on my website [here](https://nenceh.github.io/portfolio/markov-chain.html)!</mark>
 
 ## On this page...
   1. [Introduction](-intro)
